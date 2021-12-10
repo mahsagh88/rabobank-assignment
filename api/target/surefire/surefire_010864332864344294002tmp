@@ -1,0 +1,7 @@
+#surefire_0
+#Wed Dec 08 00:17:01 CET 2021
+style.color=always
+basedir=C\:\\Users\\Provide\\Documents\\RabobankAssignment-6aff835dc57bb3f839b7eac371c7034e8873953f\\api
+skipTest=true
+user.dir=C\:\\Users\\Provide\\Documents\\RabobankAssignment-6aff835dc57bb3f839b7eac371c7034e8873953f\\api
+localRepository=C\:\\Users\\Provide\\.m2\\repository

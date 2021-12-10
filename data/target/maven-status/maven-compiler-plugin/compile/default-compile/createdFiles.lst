@@ -1,0 +1,6 @@
+nl\rabobank\model\AccountData.class
+nl\rabobank\repository\PowerOfAttorneyRepository.class
+nl\rabobank\model\AccountType.class
+nl\rabobank\repository\AccountRepository.class
+nl\rabobank\model\PowerOfAttorneyData.class
+nl\rabobank\mongo\MongoConfiguration.class

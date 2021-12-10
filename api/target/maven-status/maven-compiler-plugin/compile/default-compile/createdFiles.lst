@@ -1,0 +1,11 @@
+nl\rabobank\controller\RestError$FieldError.class
+nl\rabobank\model\AccountDto.class
+nl\rabobank\service\AccountDelegator.class
+nl\rabobank\service\AccountServices.class
+nl\rabobank\controller\RestControllerAdvisor.class
+nl\rabobank\controller\RestError.class
+nl\rabobank\RaboAssignmentApplication.class
+nl\rabobank\controller\AccountController.class
+nl\rabobank\controller\PowerOfAttorneyController.class
+nl\rabobank\service\PowerOfAttorneyServices.class
+nl\rabobank\model\PowerOfAttorneyDto.class
