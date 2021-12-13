@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EntityScan("nl.rabobank.model")
 @EnableMongoRepositories("nl.rabobank.repository")
-@ComponentScan(basePackages ={"nl.rabobank.controller","nl.rabobank.service","nl.rabobank.validator"})
+@ComponentScan(basePackages ={"nl.rabobank.controller","nl.rabobank.errorhandler","nl.rabobank.service","nl.rabobank.validator"})
 @Import(MongoConfiguration.class)
 public class RaboAssignmentApplication
 {

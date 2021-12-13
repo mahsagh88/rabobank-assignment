@@ -3,6 +3,8 @@ package nl.rabobank.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.NonNull;
+
 
 /**
  * @author Provide
@@ -15,9 +17,13 @@ public class PowerOfAttorneyData {
 	
 	@Id
     private String id;
+	@NonNull
  	private UserData granteeName;
+	@NonNull
     private UserData grantorName;
+	@NonNull
     private AccountData accountNumber;
+	@NonNull
 	private String authorization;
 	
 	public PowerOfAttorneyData(UserData granteeName, UserData grantorName, AccountData accountNumber,

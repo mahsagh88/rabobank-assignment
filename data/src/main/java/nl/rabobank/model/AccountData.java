@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 /**
  * @author Provide
@@ -20,8 +21,11 @@ public class AccountData {
 
 	@Id
 	private String accountNumber;
+	@NonNull
 	private UserData accountHolderName;
+	
 	private Double balance;
+	@NonNull
 	private String accountType;
     
 }
