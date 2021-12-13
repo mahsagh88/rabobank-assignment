@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
+import org.junit.platform.commons.annotation.Testable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -15,6 +16,7 @@ import nl.rabobank.mongo.MongoConfiguration;
 @SpringBootTest(classes=MongoConfiguration.class)
 @TestInstance(PER_CLASS)
 @EnableMongoRepositories("nl.rabobank.repository")
+@Testable
 public class UserRepositoryTest {
 	
 	 @Autowired
