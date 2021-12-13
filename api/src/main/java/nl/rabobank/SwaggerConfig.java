@@ -5,26 +5,20 @@ package nl.rabobank;
  * 
  */
 
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+
+import com.google.common.base.Predicates;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.ApiKey;
-import springfox.documentation.service.AuthorizationScope;
 import springfox.documentation.service.Contact;
-import springfox.documentation.service.SecurityReference;
 import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -38,40 +32,24 @@ public class SwaggerConfig {
 
     }
 
-    private SecurityContext securityContext() {
-        return SecurityContext.builder().securityReferences(defaultAuth()).build();
-    }
-
-    private ApiKey apiKey() {
-        return new ApiKey("JWT", "Authorization", "header");
-    }
-
-    private List<SecurityReference> defaultAuth() {
-        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
-        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
-        authorizationScopes[0] = authorizationScope;
-        return Collections.singletonList(new SecurityReference("JWT", authorizationScopes));
-    }
-
     @Bean
     public Docket taskApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
-                .securityContexts(Arrays.asList(securityContext()))
-                .securitySchemes(Arrays.asList(apiKey()))
                 .select()
-                .apis(RequestHandlerSelectors.any())
-                .paths(PathSelectors.any())
+                .apis(Predicates.not(RequestHandlerSelectors.basePackage("org.springframework.boot.autoconfigure.web.servlet.error")))
+                .paths(Predicates.not(PathSelectors.regex("*/error")))
                 .build();
     }
+ 
 
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Senobar API",
-                "Senobar API for push.",
+                "Bank API",
+                "Bank API for push.",
                 "1.0",
                 "Terms of service",
-                new Contact("Senobar", "www.senobar.io", "support@senobar.io"),
+                new Contact("Bank", "www.bank.io", "support@bank.io"),
                 "License of API",
                 "API license URL",
                 Collections.emptyList());

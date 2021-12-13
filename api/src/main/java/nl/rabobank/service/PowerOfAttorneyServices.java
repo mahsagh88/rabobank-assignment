@@ -80,6 +80,15 @@ public class PowerOfAttorneyServices {
 				.build()).collect(Collectors.toList());
 	}
 	
+	public List<PowerOfAttorney> findByAllData(String grantorName, String granteeName, String accountNumber, String authorization) {
+		List<PowerOfAttorneyData> powerOfAttorneyDatas = powerRepo.findByAllData(grantorName, granteeName, accountNumber, authorization);
+		return powerOfAttorneyDatas.stream().map(p -> PowerOfAttorney.builder().granteeName(p.getGranteeName().getUserName())
+				.grantorName(p.getGrantorName().getUserName())
+				.accountNumber(accountService.findById(accountNumber))
+				.authorization(Authorization.valueOf(p.getAuthorization()))
+				.build()).collect(Collectors.toList());
+	}
+	
 	public void save(PowerOfAttorney powerOfAttorney) {
 		log.debug("Start saving powerOfAttorney [{}]", powerOfAttorney);
 		powerValidator.validateAndThrowConstraintViolationException(powerOfAttorney);

@@ -1,4 +1,4 @@
-package nl.rabobank.controller;
+package nl.rabobank.errorhandler;
 /**
  * @author Provide
  *

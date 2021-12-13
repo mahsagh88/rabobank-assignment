@@ -1,4 +1,4 @@
-package nl.rabobank.controller;
+package nl.rabobank.errorhandler;
 
 import java.time.Instant;
 import java.util.List;

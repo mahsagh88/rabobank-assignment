@@ -88,7 +88,7 @@ public class AccountServices {
     	if(!accountData.isPresent()) {
             throw new NotFoundException("Account with number: " + accountNumber + " not found");
     	}
-    	return accountData.map(acc -> acc.getAccountType().equalsIgnoreCase(AccountType.Saving.id) ?
+    	return accountData.map(acc -> acc.getAccountType().equalsIgnoreCase(AccountType.Saving.label) ?
     			new SavingsAccount(acc.getAccountNumber(), acc.getAccountHolderName().getUserId(), acc.getBalance()) :
     			new PaymentAccount(acc.getAccountNumber(), acc.getAccountHolderName().getUserId(), acc.getBalance())).orElse(null);
     }
