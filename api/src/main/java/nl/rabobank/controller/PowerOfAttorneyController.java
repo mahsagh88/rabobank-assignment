@@ -54,15 +54,15 @@ public class PowerOfAttorneyController {
 				.collect(Collectors.toList());
 	}
 
-	@GetMapping(value = "/findPowerAttorneyByGranteeName/{name}")
-	public @ResponseBody List<PowerOfAttorneyDto> findByGranteeName(@PathVariable("name") String granteeName) {
+	@GetMapping(value = "/findPowerAttorneyByGranteeId/{Id}")
+	public @ResponseBody List<PowerOfAttorneyDto> findByGranteeName(@PathVariable("Id") String granteeName) {
 		List<PowerOfAttorney> powerOfAttornies = powerService.findByGranteeName(granteeName);
 		return powerOfAttornies.stream().map(m -> new PowerOfAttorneyDto(m.getGranteeName(), 
 				m.getGrantorName(), m.getAccountNumber().getAccountNumber(), m.getAuthorization().toString())).collect(Collectors.toList());
 	}
 	
-	@GetMapping(value = "/findPowerAttorneyByGrantorName/{name}")
-	public @ResponseBody List<PowerOfAttorneyDto> findByGrantorName(@PathVariable("name") String grantorName) {
+	@GetMapping(value = "/findPowerAttorneyByGrantorId/{Id}")
+	public @ResponseBody List<PowerOfAttorneyDto> findByGrantorName(@PathVariable("Id") String grantorName) {
 		List<PowerOfAttorney> powerOfAttornies = powerService.findByGrantorName(grantorName);
 		return powerOfAttornies.stream().map(m -> new PowerOfAttorneyDto(m.getGranteeName(), 
 				m.getGrantorName(), m.getAccountNumber().getAccountNumber(), m.getAuthorization().name())).collect(Collectors.toList());

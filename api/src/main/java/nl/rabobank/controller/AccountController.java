@@ -87,8 +87,8 @@ public class AccountController {
     	return new AccountDto(account.getAccountNumber(), userService.findById(account.getAccountHolderName()).getUserName(), account.getBalance(), accountType);
     }
     
-    @GetMapping(value = "/findAccountByHolderName/{name}")
-    public @ResponseBody List<AccountDto> findByHolderName(@PathVariable("name") String holderName)
+    @GetMapping(value = "/findAccountByHolderId/{Id}")
+    public @ResponseBody List<AccountDto> findByHolderName(@PathVariable("Id") String holderName)
     {
     	List<Account> accounts = accountService.findByAccountHolderName(holderName);
     	return accounts.stream().map(acc -> acc instanceof PaymentAccount ?
